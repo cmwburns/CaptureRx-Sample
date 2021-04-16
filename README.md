@@ -1,2 +1,3 @@
 # CaptureRx-Sample
-Sample project for sample rx
+Sample project for CaptureRx
+
