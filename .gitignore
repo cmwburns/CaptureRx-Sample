@@ -1,1 +1,5 @@
-
+*.bat
+/capturerxsample/gradlew
+.idea
+/capturerxsample/build/
+/capturerxsample/.gradle/
