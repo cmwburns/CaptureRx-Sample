@@ -1,0 +1,38 @@
+<div id="addJob">
+  <label for="addJobInput">Add New Job by Id:</label>
+  <input id="addJobInput" (change)="setPostJobId($event)">
+  <button class="btn btn-primary"  (click)="addJob()"></button>
+</div>
+<div id="getJob">
+  <label for="getJobInput">Get Job by Id:</label>
+  <input id="getJobInput" (change)="setGetJobId($event)">
+  <button class="btn btn-primary" (click)="getJob()"></button>
+  <table class="table" *ngIf="job">
+    <thead>
+    <tr>
+      <th scope="col">Job Id</th>
+      <th scope="col">Job Status</th>
+    </tr>
+    <tr >
+      <td>{{this.job.id}}</td>
+      <td>{{this.job.job_status}}</td>
+    </tr>
+    </thead>
+  </table>
+</div>
+<div id="getAllJobs">
+  <label for="getAllJobsBtn">Get All Jobs:</label>
+  <button class="btn btn-primary" id="getAllJobsBtn" (click)="getAllJobs()"></button>
+  <table class="table" *ngIf="jobList">
+    <thead>
+    <tr>
+      <th scope="col">Job Id</th>
+      <th scope="col">Job Status</th>
+    </tr>
+    <tr *ngFor="let job of jobList">
+      <td>{{job.id}}</td>
+      <td>{{job.job_status}}</td>
+    </tr>
+    </thead>
+  </table>
+</div>
