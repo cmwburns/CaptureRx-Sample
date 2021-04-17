@@ -5,6 +5,8 @@ import com.cmwburns.capturerxsample.Services.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/get")
 @AllArgsConstructor
@@ -14,9 +16,16 @@ public class GetController {
 
   @CrossOrigin
   @RequestMapping(
-      value = {"/{jobId}"},
+      value = {"/job/{jobId}"},
       method = RequestMethod.GET)
-  public Job getTransactions(@PathVariable int jobId) {
+  public Job getJob(@PathVariable int jobId) {
     return jobService.getJob(jobId);
+  }
+  @CrossOrigin
+  @RequestMapping(
+          value = {"/alljobs"},
+          method = RequestMethod.GET)
+  public List<Job> getAllJobs() {
+    return jobService.getAllJobs();
   }
 }
