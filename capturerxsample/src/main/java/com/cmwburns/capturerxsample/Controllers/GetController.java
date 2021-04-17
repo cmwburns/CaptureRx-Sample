@@ -10,18 +10,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/get")
 @AllArgsConstructor
+@CrossOrigin
 public class GetController {
 
   private final JobService jobService;
 
-  @CrossOrigin
   @RequestMapping(
       value = {"/job/{jobId}"},
       method = RequestMethod.GET)
   public Job getJob(@PathVariable int jobId) {
     return jobService.getJob(jobId);
   }
-  @CrossOrigin
+
   @RequestMapping(
           value = {"/alljobs"},
           method = RequestMethod.GET)

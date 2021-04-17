@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class Consumer {
+  private final JobService jobService;
 
   @KafkaListener(topics = "Jobs", groupId = "group_id")
   public void consume(Job job) {
     log.info(String.format("Consumed job -> %s", job));
     try {
       Thread.sleep(5000);
+      jobService.save(job);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

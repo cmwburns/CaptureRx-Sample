@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/post")
 @AllArgsConstructor
+@CrossOrigin
 public class PostController {
 
   private final JobService jobService;
 
-  @CrossOrigin
   @RequestMapping(
       value = {"/addjob/{jobId}"},
       method = RequestMethod.POST)

@@ -23,6 +23,9 @@ public class JobService {
     Job job = new Job(id, "IN PROGRESS");
     jobRepository.save(job);
     kafkaProducer.sendMessage(job);
+  }
+
+  public void save(Job job) {
     job.setJob_status("DONE");
     jobRepository.save(job);
   }
