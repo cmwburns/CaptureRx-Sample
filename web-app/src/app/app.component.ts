@@ -14,7 +14,7 @@ export class AppComponent {
   getJobId: number;
   job: IJob;
   jobList: Array<IJob>;
-
+  invalidRequest: boolean;
   constructor(private apiGetService: ApiGetService, private apiPostService: ApiPostService) {
   }
 
@@ -27,7 +27,16 @@ export class AppComponent {
   }
 
   addJob() {
-    this.apiPostService.addNewJob(this.postJobId);
+    this.apiPostService.addNewJob(this.postJobId).subscribe(
+      response => {
+        console.log(response);
+        this.invalidRequest = false;
+      },
+      err => {
+        console.log(err);
+        this.invalidRequest = true;
+      }
+    );
   }
 
   getJob() {

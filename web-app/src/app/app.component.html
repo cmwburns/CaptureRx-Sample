@@ -1,10 +1,11 @@
 <div id="addJob">
-  <label for="addJobInput">Add New Job by Id:</label>
+  <p *ngIf="invalidRequest" class="alert">ID can't be 0</p>
+  <label for="addJobInput">Add New Job by ID:</label>
   <input id="addJobInput" (change)="setPostJobId($event)">
   <button class="btn btn-primary"  (click)="addJob()"></button>
 </div>
 <div id="getJob">
-  <label for="getJobInput">Get Job by Id:</label>
+  <label for="getJobInput">Get Job by ID:</label>
   <input id="getJobInput" (change)="setGetJobId($event)">
   <button class="btn btn-primary" (click)="getJob()"></button>
   <table class="table" *ngIf="job">
