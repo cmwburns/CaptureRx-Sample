@@ -6,6 +6,6 @@ then is saved again in the database with job status DONE.
 #Set Up
 In application.properties, the datasource properties for url, username, and password are set by environment variables.
 When running locally, either set up the variables in your environment, or replace the properties in the file.
-When running, make sure your Kafka server is running.
+When running, make sure your Kafka server is running. Run with gradle bootRun command.
 
 
