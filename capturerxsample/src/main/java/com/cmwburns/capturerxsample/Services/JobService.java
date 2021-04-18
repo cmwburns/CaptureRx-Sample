@@ -15,17 +15,22 @@ public class JobService {
   private final JobRepository jobRepository;
   private final Producer kafkaProducer;
 
-  public Job getJob(int id) {
+  public Job getJob(long id) {
     return jobRepository.findById(id);
   }
 
-  public void save(int id) {
-    Job job = new Job(id, "IN PROGRESS");
-    jobRepository.save(job);
-    kafkaProducer.sendMessage(job);
+  public void save(long id) throws IllegalArgumentException {
+    if (id != 0) {
+      Job job = new Job(id, "IN PROGRESS");
+      jobRepository.save(job);
+      kafkaProducer.sendMessage(job);
+    } else {
+      throw new IllegalArgumentException();
+    }
   }
 
   public void save(Job job) {
+    jobRepository.delete(job);
     job.setJob_status("DONE");
     jobRepository.save(job);
   }

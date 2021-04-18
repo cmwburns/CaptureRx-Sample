@@ -27,6 +27,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.19'
+	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+	testImplementation group: 'org.springframework.kafka', name: 'spring-kafka-test', version: '2.7.0'
+	testImplementation group: 'org.testcontainers', name: 'kafka', version: '1.15.3'
 }
 
 test {

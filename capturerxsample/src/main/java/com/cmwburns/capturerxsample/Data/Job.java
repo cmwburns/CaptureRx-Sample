@@ -15,7 +15,7 @@ import javax.persistence.Id;
 public class Job {
   @Id
   @Column(unique = true)
-  private int id;
+  private long id;
 
   @Column private String job_status;
 }
